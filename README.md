@@ -12,7 +12,8 @@ Paste a thesis or token claim and let the system determine whether onchain reali
 ## Current state
 - package consumption exists
 - planner-backed report flow works in plan mode
-- next step is stronger execute-mode evidence handling and final submission packaging
+- output is now machine-consumable for agents / LLMs via structured JSON
+- next step is stronger live execute-mode evidence handling and final submission packaging
 
 ## Development
 ```bash

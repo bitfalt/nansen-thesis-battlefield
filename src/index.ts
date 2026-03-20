@@ -1,4 +1,4 @@
-import { buildWeekOnePlan, buildMarkdownReport, type PlannerRun } from '@bitfalt/nansen-query-planner'
+import { buildWeekOnePlan, buildStructuredReport, type PlannerRun } from '@bitfalt/nansen-query-planner'
 
 const thesis = 'Smart money is accumulating HYPE'
 const token = 'HYPE'
@@ -12,5 +12,5 @@ const run: PlannerRun = {
   executed: false,
 }
 
-const report = buildMarkdownReport(run)
-console.log(report)
+const report = buildStructuredReport(run)
+console.log(JSON.stringify(report, null, 2))
