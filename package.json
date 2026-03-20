@@ -1,0 +1,17 @@
+{
+  "name": "nansen-thesis-battlefield",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.11",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "demo": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "@bitfalt/nansen-query-planner": "github:bitfalt/nansen-query-planner"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3"
+  }
+}

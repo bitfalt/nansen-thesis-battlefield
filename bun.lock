@@ -1,0 +1,25 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "nansen-thesis-battlefield",
+      "dependencies": {
+        "@bitfalt/nansen-query-planner": "github:bitfalt/nansen-query-planner",
+      },
+      "devDependencies": {
+        "@types/node": "^24.0.0",
+        "typescript": "^5.9.3",
+      },
+    },
+  },
+  "packages": {
+    "@bitfalt/nansen-query-planner": ["@bitfalt/nansen-query-planner@github:bitfalt/nansen-query-planner#7499f4c", { "bin": { "nansen-query-planner": "./bin/nansen-query-planner.ts" } }, "bitfalt-nansen-query-planner-7499f4c", "sha512-NOsEddb3OY9spKZZxDsJCPb4FzktfLrjOdJpQ4s3KtRCq9ZBU4bc6fcpUiTxG8In7CnMOjM28xB72XZn0oO2qw=="],
+
+    "@types/node": ["@types/node@24.12.0", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-GYDxsZi3ChgmckRT9HPU0WEhKLP08ev/Yfcq2AstjrDASOYCSXeyjDsHg4v5t4jOj7cyDX3vmprafKlWIG9MXQ=="],
+
+    "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
+
+    "undici-types": ["undici-types@7.16.0", "", {}, "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="],
+  }
+}
