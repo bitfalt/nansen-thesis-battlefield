@@ -14,7 +14,7 @@
     },
   },
   "packages": {
-    "@bitfalt/nansen-query-planner": ["@bitfalt/nansen-query-planner@github:bitfalt/nansen-query-planner#f4ead85", { "bin": { "nansen-query-planner": "./bin/nansen-query-planner.ts" } }, "bitfalt-nansen-query-planner-f4ead85", "sha512-jTQU5dWhjgO+mm0/9JHrn5uAF/n7lU7sd/seWVDK5jtGot79/Xqy/orA99PNrHCJPzns5M2CvZb/xrXEso42LQ=="],
+    "@bitfalt/nansen-query-planner": ["@bitfalt/nansen-query-planner@github:bitfalt/nansen-query-planner#af19f12", { "bin": { "nansen-query-planner": "./bin/nansen-query-planner.ts" } }, "bitfalt-nansen-query-planner-af19f12", "sha512-lRrcVN/cov2inu4F30Xm0cOhxfUcxIC0LQfApAt8g8vB05o/cms7Gjrk3tx7nq5tYdIUb0DxjJ+zfUkZjus3qw=="],
 
     "@types/node": ["@types/node@24.12.0", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-GYDxsZi3ChgmckRT9HPU0WEhKLP08ev/Yfcq2AstjrDASOYCSXeyjDsHg4v5t4jOj7cyDX3vmprafKlWIG9MXQ=="],
 
