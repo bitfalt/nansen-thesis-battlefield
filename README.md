@@ -3,12 +3,20 @@
 Week 1 NansenCLI mini hackathon product shell.
 
 This repo is the Week 1 app surface.
-It depends on the shared planner foundation from:
+It consumes the shared planner foundation from:
 - https://github.com/bitfalt/nansen-query-planner
 
-## Purpose
-Take a thesis or token claim and turn it into a verdict backed by planned or executed Nansen evidence.
+## One-liner
+Paste a thesis or token claim and let the system determine whether onchain reality supports or contradicts it.
 
 ## Current state
-- shell scaffold exists
-- next step is cleaner package consumption and user-facing report flow
+- package consumption exists
+- planner-backed report flow works in plan mode
+- next step is stronger execute-mode evidence handling and final submission packaging
+
+## Development
+```bash
+bun install
+bun run demo
+bun run typecheck
+```
