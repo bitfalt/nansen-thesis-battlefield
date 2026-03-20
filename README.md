@@ -1,13 +1,14 @@
 # Nansen Thesis Battlefield
 
-Week 1 NansenCLI mini hackathon app shell.
+Week 1 NansenCLI mini hackathon product shell.
 
-This repo is the Week 1 product surface.
-It consumes the shared `@bitfalt/nansen-query-planner` foundation.
-
-## One-liner
-Paste a thesis or token claim and let the system determine whether onchain reality supports or contradicts it.
-
-## Relationship to the foundation repo
-Shared planner package:
+This repo is the Week 1 app surface.
+It depends on the shared planner foundation from:
 - https://github.com/bitfalt/nansen-query-planner
+
+## Purpose
+Take a thesis or token claim and turn it into a verdict backed by planned or executed Nansen evidence.
+
+## Current state
+- shell scaffold exists
+- next step is cleaner package consumption and user-facing report flow
