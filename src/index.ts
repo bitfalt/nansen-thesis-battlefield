@@ -13,4 +13,20 @@ const run: PlannerRun = {
 }
 
 const report = buildStructuredReport(run)
-console.log(JSON.stringify(report, null, 2))
+console.log(
+  JSON.stringify(
+    {
+      thesis: report.thesis,
+      verdict: report.verdict,
+      plannerSummary: report.plannerSummary,
+      llmSummary: report.llmSummary,
+      strongestBullEvidence: report.strongestBullEvidence,
+      strongestBearEvidence: report.strongestBearEvidence,
+      agentSummary: report.agentSummary,
+      caveats: report.caveats,
+      nextQuestions: report.nextQuestions,
+    },
+    null,
+    2,
+  ),
+)
