@@ -81,4 +81,4 @@ Thesis Battlefield now exposes a single agent-friendly command and API:
 - command: `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe`
 - API: `analyzeThesis({ thesis, token?, chain?, mode?, budgetProfile?, format? })`
 
-See `docs/agent-skill.md` for the exact contract.
+See `SKILL.md` for the agent-facing skill instructions and `docs/agent-skill.md` for the exact contract.
