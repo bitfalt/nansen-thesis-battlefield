@@ -6,6 +6,7 @@ Week 1 shell for turning a token thesis into a budget-aware Nansen investigation
 - chain: solana
 - planner profile: safe
 - planner caps: 8 calls / 80 credits
+- recommended profile: safe
 - mode: plan shell surface backed by the reusable planner package
 
 ========================================================================================
@@ -38,6 +39,9 @@ Planner Summary
 - executed queries: 0
 - categories: search, token
 - estimated credits for this plan: 80
+- safe budget option: 8 calls / 80 credits
+- expanded budget option: 10 calls / 200 credits
+- budget note: A safe pass is usually enough for a first live read on a straightforward accumulation thesis.
 - verdict now: INCONCLUSIVE (low)
 - next action: Run a bounded execute-mode validation.
 
@@ -116,7 +120,7 @@ Agent Handoff Preview
 ========================================================================================
 {
   "reportType": "thesis-battlefield.v1",
-  "runId": "battlefield_2026-03-21T07-29-17-331Z",
+  "runId": "battlefield_2026-03-21T16-12-50-424Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",
@@ -137,7 +141,21 @@ Agent Handoff Preview
       "search",
       "token"
     ],
-    "estimatedTotalCredits": 80
+    "estimatedTotalCredits": 80,
+    "recommendedBudgetProfile": "safe",
+    "recommendedBudgetReasoning": [
+      "A safe pass is usually enough for a first live read on a straightforward accumulation thesis."
+    ],
+    "budgetOptions": {
+      "safe": {
+        "maxCalls": 8,
+        "maxCredits": 80
+      },
+      "expanded": {
+        "maxCalls": 10,
+        "maxCredits": 200
+      }
+    }
   },
   "llmSummary": {
     "oneSentence": "INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE",

@@ -1,7 +1,7 @@
 {
   "reportType": "thesis-battlefield.v1",
-  "runId": "battlefield_2026-03-21T07-29-17-331Z",
-  "generatedAt": "2026-03-21T07:29:17.339Z",
+  "runId": "battlefield_2026-03-21T16-12-50-424Z",
+  "generatedAt": "2026-03-21T16:12:50.426Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",
@@ -24,7 +24,21 @@
       "search",
       "token"
     ],
-    "estimatedTotalCredits": 80
+    "estimatedTotalCredits": 80,
+    "recommendedBudgetProfile": "safe",
+    "recommendedBudgetReasoning": [
+      "A safe pass is usually enough for a first live read on a straightforward accumulation thesis."
+    ],
+    "budgetOptions": {
+      "safe": {
+        "maxCalls": 8,
+        "maxCredits": 80
+      },
+      "expanded": {
+        "maxCalls": 10,
+        "maxCredits": 200
+      }
+    }
   },
   "llmSummary": {
     "oneSentence": "INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE",

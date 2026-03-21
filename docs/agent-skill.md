@@ -59,8 +59,11 @@ The planner will use the detected `nansen` CLI binary, including the Bun-install
 
 ## Recommended agent behavior
 - default to `mode: plan` if the user is brainstorming and does not want to spend credits yet
-- default to `mode: execute` with `budgetProfile: safe` for first live validation
-- escalate to `budgetProfile: expanded` only when the first run leaves the thesis genuinely unresolved
+- if the user asks for live execution without picking a budget, first surface the `safe` vs `expanded` options and the planner's recommendation
+- `safe` is roughly `8` calls / `80` credits
+- `expanded` is roughly `10` calls / `200` credits
+- only default to `safe` automatically when the user clearly wants the cheapest first pass
+- escalate to `expanded` when the thesis bundles multiple claims or the first run leaves the thesis genuinely unresolved
 
 ## Why this should be a skill
 - one stable command for agents

@@ -44,8 +44,11 @@ nansen login --api-key <NANSEN_API_KEY>
 
 ## Default behavior
 - If the user is exploring or did not explicitly ask for live execution, use `mode=plan`.
-- If the user wants a real live check, start with `mode=execute` and `budgetProfile=safe`.
-- Only use `budgetProfile=expanded` when the safe run leaves the thesis materially unresolved or when the user explicitly wants a fuller read.
+- If the user wants a real live check but did not choose a budget, first show the two budget options and the planner's recommended profile for the thesis.
+- `safe` is roughly `8` calls / `80` credits.
+- `expanded` is roughly `10` calls / `200` credits.
+- Only default straight into `safe` when the user explicitly wants the cheapest first pass.
+- Use `expanded` when the thesis bundles multiple claims like flows + momentum + crowding + holder health, or when the planner recommends it.
 
 ## Single command
 ```bash
@@ -108,7 +111,10 @@ const result = analyzeThesis({
 - `safe`: use for first live validation
 - `expanded`: use only when a thesis truly needs deeper evidence
 
-If the user is not explicitly asking to spend more credits, prefer `safe`.
+If the user does not specify a budget and asks for execute mode, tell them:
+- what `safe` will approximately spend
+- what `expanded` will approximately spend
+- which one the planner recommends for the prompt
 
 ## Recommended agent response pattern
 1. Restate the thesis briefly.

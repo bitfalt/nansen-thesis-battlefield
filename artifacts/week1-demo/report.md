@@ -33,6 +33,9 @@ no
 - Executed queries: 0
 - Categories: search, token
 - Estimated credits: 80
+- Recommended budget profile: safe
+- Safe budget: 8 calls / 80 credits
+- Expanded budget: 10 calls / 200 credits
 
 ## LLM/Agent Summary
 - One sentence: INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE
