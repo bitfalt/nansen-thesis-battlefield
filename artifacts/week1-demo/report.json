@@ -1,7 +1,7 @@
 {
   "reportType": "thesis-battlefield.v1",
   "runId": "demo-week-1",
-  "generatedAt": "2026-03-21T06:32:53.799Z",
+  "generatedAt": "2026-03-21T06:55:08.025Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",
@@ -136,8 +136,8 @@
     "Only a small subset of the planned investigation has been executed so far."
   ],
   "agentSummary": {
-    "strongestBullCase": "No strong bull-side evidence yet.",
-    "strongestBearCase": "No strong bear-side evidence yet."
+    "strongestBullCase": "No strong thesis-supporting evidence yet.",
+    "strongestBearCase": "No strong thesis-contradicting evidence yet."
   },
   "thesisProfile": {
     "searchQuery": "HYPE",
@@ -147,6 +147,7 @@
       "smart-money",
       "flows"
     ],
+    "claimPolarity": "positive",
     "confidence": "high",
     "reasoning": [
       "Using explicit token hint: HYPE.",

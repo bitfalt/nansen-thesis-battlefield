@@ -212,6 +212,7 @@ function renderShell(report: DemoReport, options: DemoOptions) {
       `token hint: ${report.thesisProfile?.tokenHint ?? report.token}`,
       `chain hint: ${report.thesisProfile?.chainHint ?? report.chain}`,
       `lenses: ${report.thesisProfile?.lenses.join(', ') ?? 'none'}`,
+      `claim polarity: ${report.thesisProfile?.claimPolarity ?? 'positive'}`,
       `inference confidence: ${report.thesisProfile?.confidence ?? 'low'}`,
       ...((report.thesisProfile?.reasoning ?? []).map((reason) => `inference: ${reason}`)),
     ]),
@@ -230,8 +231,8 @@ function renderShell(report: DemoReport, options: DemoOptions) {
     bullet([
       `one-line take: ${report.llmSummary.oneSentence}`,
       `analyst take: ${report.llmSummary.analystTake}`,
-      `strongest bull case: ${report.agentSummary.strongestBullCase}`,
-      `strongest bear case: ${report.agentSummary.strongestBearCase}`,
+      `strongest supporting case: ${report.agentSummary.strongestBullCase}`,
+      `strongest contradictory case: ${report.agentSummary.strongestBearCase}`,
       ...report.caveats.map((caveat) => `caveat: ${caveat}`),
     ]),
     section('Validated Live Status'),

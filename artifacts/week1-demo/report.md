@@ -11,6 +11,7 @@ HYPE on solana
 - Token hint: HYPE
 - Chain hint: solana
 - Lenses: smart-money, flows
+- Claim polarity: positive
 - Inference confidence: high
 
 ## Mode
@@ -23,8 +24,8 @@ no
 - Decision: INCONCLUSIVE
 - Confidence: low
 - Explanation: The query plan exists, but there is not enough executed evidence yet to support a real directional verdict.
-- Bull signal: 0
-- Bear signal: 0
+- Support signal: 0
+- Contradiction signal: 0
 
 ## Planner Summary
 - Total queries: 8
@@ -37,15 +38,15 @@ no
 - Analyst take: The query plan exists, but there is not enough executed evidence yet to support a real directional verdict.
 - Next action: Run a bounded execute-mode validation.
 
-## Strongest Bull Evidence
+## Strongest Supporting Evidence
 - None yet
 
-## Strongest Bear Evidence
+## Strongest Contradictory Evidence
 - None yet
 
 ## Agent Summary
-- Strongest bull case: No strong bull-side evidence yet.
-- Strongest bear case: No strong bear-side evidence yet.
+- Strongest supporting case: No strong thesis-supporting evidence yet.
+- Strongest contradictory case: No strong thesis-contradicting evidence yet.
 
 ## Caveats
 - The report is based on planning mode only; live evidence has not been collected yet.

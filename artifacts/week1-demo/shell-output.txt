@@ -24,6 +24,7 @@ Thesis Profile
 - token hint: HYPE
 - chain hint: solana
 - lenses: smart-money, flows
+- claim polarity: positive
 - inference confidence: high
 - inference: Using explicit token hint: HYPE.
 - inference: Using explicit chain hint: solana.
@@ -95,8 +96,8 @@ Human Readout
 ========================================================================================
 - one-line take: INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE
 - analyst take: The query plan exists, but there is not enough executed evidence yet to support a real directional verdict.
-- strongest bull case: No strong bull-side evidence yet.
-- strongest bear case: No strong bear-side evidence yet.
+- strongest supporting case: No strong thesis-supporting evidence yet.
+- strongest contradictory case: No strong thesis-contradicting evidence yet.
 - caveat: The report is based on planning mode only; live evidence has not been collected yet.
 - caveat: Only a small subset of the planned investigation has been executed so far.
 
@@ -152,8 +153,8 @@ Agent Handoff Preview
     "What additional evidence would change the verdict materially?"
   ],
   "agentSummary": {
-    "strongestBullCase": "No strong bull-side evidence yet.",
-    "strongestBearCase": "No strong bear-side evidence yet."
+    "strongestBullCase": "No strong thesis-supporting evidence yet.",
+    "strongestBearCase": "No strong thesis-contradicting evidence yet."
   },
   "thesisProfile": {
     "searchQuery": "HYPE",
@@ -163,6 +164,7 @@ Agent Handoff Preview
       "smart-money",
       "flows"
     ],
+    "claimPolarity": "positive",
     "confidence": "high",
     "reasoning": [
       "Using explicit token hint: HYPE.",
