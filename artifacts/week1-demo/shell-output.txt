@@ -6,7 +6,7 @@ Week 1 shell for turning a token thesis into a budget-aware Nansen investigation
 - chain: solana
 - planner profile: safe
 - planner caps: 8 calls / 80 credits
-- mode: offline shell preview backed by the reusable planner package
+- mode: plan shell surface backed by the reusable planner package
 
 ========================================================================================
 Judge Scan
@@ -35,7 +35,7 @@ Thesis Profile
 Planner Summary
 ========================================================================================
 - planned queries: 8
-- executed queries in this preview: 0
+- executed queries: 0
 - categories: search, token
 - estimated credits for this plan: 80
 - verdict now: INCONCLUSIVE (low)
@@ -116,7 +116,7 @@ Agent Handoff Preview
 ========================================================================================
 {
   "reportType": "thesis-battlefield.v1",
-  "runId": "demo-week-1",
+  "runId": "battlefield_2026-03-21T07-29-17-331Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",

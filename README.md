@@ -29,6 +29,7 @@ The point is not just to fetch data, but to show whether current onchain evidenc
 ## Quick start
 ```bash
 bun install
+bun run battlefield -- --thesis "Smart money is accumulating HYPE" --mode plan --budget-profile safe
 bun run demo
 bun run demo:thesis
 bun run demo:budget
@@ -38,6 +39,7 @@ bun run typecheck
 ```
 
 ## Demo outputs
+- `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe` runs the agent-facing thesis analyzer
 - `bun run demo` renders the Week 1 shell surface
 - `bun run demo:thesis` shows the thesis-first Starknet-style agent flow with planner inference
 - `bun run demo:budget` shows the same thesis under the safe budget profile
@@ -65,6 +67,7 @@ This repo focuses on:
 - presentation
 - demo flow
 - submission packaging
+- agent-facing workflow / skill surface
 
 The foundation repo focuses on:
 - planning
@@ -72,3 +75,10 @@ The foundation repo focuses on:
 - evidence extraction
 - verdict logic
 - structured reports
+
+## Agent skill shape
+Thesis Battlefield now exposes a single agent-friendly command and API:
+- command: `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe`
+- API: `analyzeThesis({ thesis, token?, chain?, mode?, budgetProfile?, format? })`
+
+See `docs/agent-skill.md` for the exact contract.

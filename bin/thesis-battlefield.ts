@@ -1,6 +1,7 @@
-import { analyzeThesis, demoDefaults } from './battlefield'
+#!/usr/bin/env bun
+import { analyzeThesis, demoDefaults, type BattlefieldFormat, type BattlefieldMode, type BudgetProfileName } from '../src/battlefield'
 
-function parseDemoArgs(argv: string[]) {
+function parseArgs(argv: string[]) {
   const defaults = demoDefaults()
   const options: {
     thesis: string
@@ -9,10 +10,11 @@ function parseDemoArgs(argv: string[]) {
     budgetProfile: 'safe' | 'expanded'
     maxCalls: number
     maxCredits?: number
-    format: 'shell' | 'json' | 'markdown'
+    format: BattlefieldFormat
     writeArtifacts: boolean
     artifactDir: string
-  } = { ...defaults }
+    mode: BattlefieldMode
+  } = { ...defaults, mode: 'plan' }
   let thesisSet = false
   let tokenSet = false
   let chainSet = false
@@ -22,12 +24,17 @@ function parseDemoArgs(argv: string[]) {
     const next = argv[index + 1]
 
     if (current === '--json') {
-      options.format = 'json'
+      options.format = 'json' as BattlefieldFormat
       continue
     }
 
     if (current === '--markdown') {
-      options.format = 'markdown'
+      options.format = 'markdown' as BattlefieldFormat
+      continue
+    }
+
+    if (current === '--shell') {
+      options.format = 'shell' as BattlefieldFormat
       continue
     }
 
@@ -57,6 +64,12 @@ function parseDemoArgs(argv: string[]) {
       continue
     }
 
+    if (current === '--mode' && next && (next === 'plan' || next === 'execute')) {
+      options.mode = next
+      index += 1
+      continue
+    }
+
     if (current === '--artifact-dir' && next) {
       options.artifactDir = next
       index += 1
@@ -64,7 +77,7 @@ function parseDemoArgs(argv: string[]) {
     }
 
     if (current === '--budget-profile' && next && (next === 'safe' || next === 'expanded')) {
-      options.budgetProfile = next
+      options.budgetProfile = next as BudgetProfileName
       index += 1
       continue
     }
@@ -80,6 +93,7 @@ function parseDemoArgs(argv: string[]) {
       const value = Number(next)
       if (Number.isFinite(value) && value > 0) options.maxCredits = value
       index += 1
+      continue
     }
   }
 
@@ -90,8 +104,8 @@ function parseDemoArgs(argv: string[]) {
 }
 
 function main() {
-  const options = parseDemoArgs(process.argv.slice(2))
-  const result = analyzeThesis({ ...options, mode: 'plan' })
+  const options = parseArgs(process.argv.slice(2))
+  const result = analyzeThesis(options)
   console.log(result.output)
 }
 
