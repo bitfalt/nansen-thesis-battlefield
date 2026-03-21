@@ -1,0 +1,143 @@
+{
+  "reportType": "thesis-battlefield.v1",
+  "runId": "demo-week-1",
+  "generatedAt": "2026-03-21T03:04:59.933Z",
+  "thesis": "Smart money is accumulating HYPE",
+  "token": "HYPE",
+  "chain": "solana",
+  "mode": "plan",
+  "executed": false,
+  "verdict": {
+    "decision": "INCONCLUSIVE",
+    "confidence": "low",
+    "bullEvidenceCount": 0,
+    "bearEvidenceCount": 0,
+    "neutralEvidenceCount": 0,
+    "bullSignal": 0,
+    "bearSignal": 0,
+    "explanation": "The query plan exists, but there is not enough executed evidence yet to support a real directional verdict."
+  },
+  "plannerSummary": {
+    "totalQueries": 10,
+    "executedQueries": 0,
+    "categories": [
+      "search",
+      "token"
+    ]
+  },
+  "llmSummary": {
+    "oneSentence": "INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE",
+    "analystTake": "The query plan exists, but there is not enough executed evidence yet to support a real directional verdict.",
+    "nextAction": "Run a bounded execute-mode validation."
+  },
+  "plannedQueries": [
+    {
+      "id": "q1",
+      "label": "Resolve entity and search context",
+      "command": "nansen research search --query \"HYPE\" --limit 5",
+      "rationale": "Confirm the entity and collect the first contextual anchors.",
+      "category": "search",
+      "expectedSignal": "contextual"
+    },
+    {
+      "id": "q2",
+      "label": "Get token info",
+      "command": "nansen research token info --chain solana --token HYPE",
+      "rationale": "Establish the token identity, contract, and basic metadata.",
+      "category": "token",
+      "expectedSignal": "contextual"
+    },
+    {
+      "id": "q3",
+      "label": "Inspect token indicators",
+      "command": "nansen research token indicators --chain solana --token HYPE",
+      "rationale": "Pull high-level market and risk indicators that could support or weaken the thesis.",
+      "category": "token",
+      "expectedSignal": "contextual"
+    },
+    {
+      "id": "q4",
+      "label": "7-day token flows",
+      "command": "nansen research token flows --chain solana --token HYPE --days 7",
+      "rationale": "Check short-term net flow pressure and direction.",
+      "category": "token",
+      "expectedSignal": "supportive"
+    },
+    {
+      "id": "q5",
+      "label": "30-day token flows",
+      "command": "nansen research token flows --chain solana --token HYPE --days 30",
+      "rationale": "Compare short-term thesis to medium-term capital movement.",
+      "category": "token",
+      "expectedSignal": "contextual"
+    },
+    {
+      "id": "q6",
+      "label": "Flow intelligence",
+      "command": "nansen research token flow-intelligence --chain solana --token HYPE --days 7",
+      "rationale": "Identify the quality and character of capital flows.",
+      "category": "token",
+      "expectedSignal": "supportive"
+    },
+    {
+      "id": "q7",
+      "label": "Holder distribution",
+      "command": "nansen research token holders --chain solana --token HYPE",
+      "rationale": "Check concentration and holder quality risk.",
+      "category": "token",
+      "expectedSignal": "contradictory"
+    },
+    {
+      "id": "q8",
+      "label": "Who bought and sold recently",
+      "command": "nansen research token who-bought-sold --chain solana --token HYPE --days 7",
+      "rationale": "Identify directional participants and opposing evidence.",
+      "category": "token",
+      "expectedSignal": "contradictory"
+    },
+    {
+      "id": "q9",
+      "label": "PnL snapshot",
+      "command": "nansen research token pnl --chain solana --token HYPE --days 30",
+      "rationale": "See whether current positioning looks healthy or crowded.",
+      "category": "token",
+      "expectedSignal": "contextual"
+    },
+    {
+      "id": "q10",
+      "label": "OHLCV context",
+      "command": "nansen research token ohlcv --chain solana --token HYPE --timeframe 1h",
+      "rationale": "Add price-action context to the evidence set.",
+      "category": "token",
+      "expectedSignal": "contextual"
+    }
+  ],
+  "evidence": [],
+  "queryTrace": [
+    "nansen research search --query \"HYPE\" --limit 5",
+    "nansen research token info --chain solana --token HYPE",
+    "nansen research token indicators --chain solana --token HYPE",
+    "nansen research token flows --chain solana --token HYPE --days 7",
+    "nansen research token flows --chain solana --token HYPE --days 30",
+    "nansen research token flow-intelligence --chain solana --token HYPE --days 7",
+    "nansen research token holders --chain solana --token HYPE",
+    "nansen research token who-bought-sold --chain solana --token HYPE --days 7",
+    "nansen research token pnl --chain solana --token HYPE --days 30",
+    "nansen research token ohlcv --chain solana --token HYPE --timeframe 1h"
+  ],
+  "nextQuestions": [
+    "Which executed query produced the strongest contradictory signal?",
+    "Should we spend more credits on profiler follow-ups or stop here?",
+    "What additional evidence would change the verdict materially?"
+  ],
+  "strongestBullEvidence": null,
+  "strongestBearEvidence": null,
+  "caveats": [
+    "The report is based on planning mode only; live evidence has not been collected yet.",
+    "Only a small subset of the planned investigation has been executed so far."
+  ],
+  "agentSummary": {
+    "strongestBullCase": "No strong bull-side evidence yet.",
+    "strongestBearCase": "No strong bear-side evidence yet."
+  }
+}

@@ -1,0 +1,157 @@
+THESIS BATTLEFIELD
+Week 1 shell for turning a token thesis into a budget-aware Nansen investigation.
+
+- thesis: Smart money is accumulating HYPE
+- token: HYPE
+- chain: solana
+- mode: offline shell preview backed by the reusable planner package
+
+========================================================================================
+Judge Scan
+========================================================================================
+- This repo is the product shell, not the planner engine.
+- The shell surfaces the investigation path, verdict framing, caveats, and agent handoff in one place.
+- The default demo stays offline and credit-safe while still showing the real report contract.
+- Use bounded live runs only when a concrete product question is worth the spend.
+
+========================================================================================
+Planner Summary
+========================================================================================
+- planned queries: 10
+- executed queries in this preview: 0
+- categories: search, token
+- verdict now: INCONCLUSIVE (low)
+- next action: Run a bounded execute-mode validation.
+
+========================================================================================
+Investigation Plan
+========================================================================================
+[1] Resolve entity and search context
+  id: q1 | category: search | expected signal: contextual
+  why: Confirm the entity and collect the first contextual anchors.
+  cmd: nansen research search --query "HYPE" --limit 5
+
+[2] Get token info
+  id: q2 | category: token | expected signal: contextual
+  why: Establish the token identity, contract, and basic metadata.
+  cmd: nansen research token info --chain solana --token HYPE
+
+[3] Inspect token indicators
+  id: q3 | category: token | expected signal: contextual
+  why: Pull high-level market and risk indicators that could support or weaken the thesis.
+  cmd: nansen research token indicators --chain solana --token HYPE
+
+[4] 7-day token flows
+  id: q4 | category: token | expected signal: supportive
+  why: Check short-term net flow pressure and direction.
+  cmd: nansen research token flows --chain solana --token HYPE --days 7
+
+[5] 30-day token flows
+  id: q5 | category: token | expected signal: contextual
+  why: Compare short-term thesis to medium-term capital movement.
+  cmd: nansen research token flows --chain solana --token HYPE --days 30
+
+[6] Flow intelligence
+  id: q6 | category: token | expected signal: supportive
+  why: Identify the quality and character of capital flows.
+  cmd: nansen research token flow-intelligence --chain solana --token HYPE --days 7
+
+[7] Holder distribution
+  id: q7 | category: token | expected signal: contradictory
+  why: Check concentration and holder quality risk.
+  cmd: nansen research token holders --chain solana --token HYPE
+
+[8] Who bought and sold recently
+  id: q8 | category: token | expected signal: contradictory
+  why: Identify directional participants and opposing evidence.
+  cmd: nansen research token who-bought-sold --chain solana --token HYPE --days 7
+
+[9] PnL snapshot
+  id: q9 | category: token | expected signal: contextual
+  why: See whether current positioning looks healthy or crowded.
+  cmd: nansen research token pnl --chain solana --token HYPE --days 30
+
+[10] OHLCV context
+  id: q10 | category: token | expected signal: contextual
+  why: Add price-action context to the evidence set.
+  cmd: nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
+
+========================================================================================
+Human Readout
+========================================================================================
+- one-line take: INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE
+- analyst take: The query plan exists, but there is not enough executed evidence yet to support a real directional verdict.
+- strongest bull case: No strong bull-side evidence yet.
+- strongest bear case: No strong bear-side evidence yet.
+- caveat: The report is based on planning mode only; live evidence has not been collected yet.
+- caveat: Only a small subset of the planned investigation has been executed so far.
+
+========================================================================================
+Validated Live Status
+========================================================================================
+- confirmed: q1 search smoke test resolves the thesis target safely.
+- confirmed: q1 -> q2 bounded execute-mode validation works and returns usable token context.
+- constraint: A deeper 4-call attempt reached CREDITS_EXHAUSTED after the first two successful queries.
+- constraint: Premium and label-heavy families still need intentionally bounded follow-up validation.
+- policy: Default low-cost path is q1 search -> q2 token info -> stop and inspect before spending more credits.
+
+========================================================================================
+Agent Handoff Preview
+========================================================================================
+{
+  "reportType": "thesis-battlefield.v1",
+  "runId": "demo-week-1",
+  "thesis": "Smart money is accumulating HYPE",
+  "token": "HYPE",
+  "chain": "solana",
+  "verdict": {
+    "decision": "INCONCLUSIVE",
+    "confidence": "low",
+    "bullEvidenceCount": 0,
+    "bearEvidenceCount": 0,
+    "neutralEvidenceCount": 0,
+    "bullSignal": 0,
+    "bearSignal": 0,
+    "explanation": "The query plan exists, but there is not enough executed evidence yet to support a real directional verdict."
+  },
+  "plannerSummary": {
+    "totalQueries": 10,
+    "executedQueries": 0,
+    "categories": [
+      "search",
+      "token"
+    ]
+  },
+  "llmSummary": {
+    "oneSentence": "INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE",
+    "analystTake": "The query plan exists, but there is not enough executed evidence yet to support a real directional verdict.",
+    "nextAction": "Run a bounded execute-mode validation."
+  },
+  "caveats": [
+    "The report is based on planning mode only; live evidence has not been collected yet.",
+    "Only a small subset of the planned investigation has been executed so far."
+  ],
+  "nextQuestions": [
+    "Which executed query produced the strongest contradictory signal?",
+    "Should we spend more credits on profiler follow-ups or stop here?",
+    "What additional evidence would change the verdict materially?"
+  ],
+  "agentSummary": {
+    "strongestBullCase": "No strong bull-side evidence yet.",
+    "strongestBearCase": "No strong bear-side evidence yet."
+  },
+  "plannedQueryCount": 10,
+  "queryTracePreview": [
+    "nansen research search --query \"HYPE\" --limit 5",
+    "nansen research token info --chain solana --token HYPE",
+    "nansen research token indicators --chain solana --token HYPE"
+  ]
+}
+
+========================================================================================
+Artifacts
+========================================================================================
+- markdown artifact: artifacts/week1-demo/report.md
+- json artifact: artifacts/week1-demo/report.json
+- terminal artifact: artifacts/week1-demo/shell-output.txt
+- run `bun run demo -- --write-artifacts` to refresh the offline artifact pack.

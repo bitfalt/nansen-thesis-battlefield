@@ -5,7 +5,10 @@
   "packageManager": "bun@1.3.11",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "demo": "bun run src/index.ts"
+    "demo": "bun run src/index.ts",
+    "demo:json": "bun run src/index.ts --json",
+    "demo:markdown": "bun run src/index.ts --markdown",
+    "demo:artifacts": "bun run src/index.ts --write-artifacts"
   },
   "dependencies": {
     "@bitfalt/nansen-query-planner": "github:bitfalt/nansen-query-planner"
