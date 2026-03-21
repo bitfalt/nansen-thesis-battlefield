@@ -32,6 +32,7 @@ bun install
 bun run demo
 bun run demo:thesis
 bun run demo:budget
+bun run demo:expanded
 bun run demo:artifacts
 bun run typecheck
 ```
@@ -39,7 +40,8 @@ bun run typecheck
 ## Demo outputs
 - `bun run demo` renders the Week 1 shell surface
 - `bun run demo:thesis` shows the thesis-first Starknet-style agent flow with planner inference
-- `bun run demo:budget` shows the same thesis under explicit call and credit caps
+- `bun run demo:budget` shows the same thesis under the safe budget profile
+- `bun run demo:expanded` shows the expanded budget profile for a fuller plan
 - `bun run demo:json` prints the full structured report for agents / LLMs
 - `bun run demo:markdown` prints the human-readable report
 - `bun run demo:artifacts` refreshes the offline artifact pack in `artifacts/week1-demo`

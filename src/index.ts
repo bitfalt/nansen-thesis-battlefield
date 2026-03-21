@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import {
+  resolveBudgetProfile,
   buildMarkdownReport,
   buildStructuredReport,
   buildWeekOnePlan,
@@ -13,6 +14,7 @@ type DemoOptions = {
   thesis: string
   token?: string
   chain?: string
+  budgetProfile: 'safe' | 'expanded'
   maxCalls: number
   maxCredits?: number
   format: OutputFormat
@@ -22,12 +24,15 @@ type DemoOptions = {
 
 type DemoReport = ReturnType<typeof buildStructuredReport>
 
+const SAFE_BUDGET = resolveBudgetProfile('safe')
+
 const DEFAULT_OPTIONS: DemoOptions = {
   thesis: 'Smart money is accumulating HYPE',
   token: 'HYPE',
   chain: 'solana',
-  maxCalls: 8,
-  maxCredits: 60,
+  budgetProfile: 'safe',
+  maxCalls: SAFE_BUDGET.maxCalls,
+  maxCredits: SAFE_BUDGET.maxCredits,
   format: 'shell',
   writeArtifacts: false,
   artifactDir: 'artifacts/week1-demo',
@@ -93,6 +98,15 @@ function parseArgs(argv: string[]): DemoOptions {
 
     if (current === '--artifact-dir' && next) {
       options.artifactDir = next
+      index += 1
+      continue
+    }
+
+    if (current === '--budget-profile' && next) {
+      const profile = resolveBudgetProfile(next)
+      options.budgetProfile = profile.name
+      options.maxCalls = profile.maxCalls
+      options.maxCredits = profile.maxCredits
       index += 1
       continue
     }
@@ -180,6 +194,7 @@ function renderShell(report: DemoReport, options: DemoOptions) {
       `thesis: ${options.thesis}`,
       `token: ${report.token}`,
       `chain: ${report.chain}`,
+      `planner profile: ${options.budgetProfile}`,
       `planner caps: ${options.maxCalls} calls${options.maxCredits ? ` / ${options.maxCredits} credits` : ''}`,
       'mode: offline shell preview backed by the reusable planner package',
     ]),

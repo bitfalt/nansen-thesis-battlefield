@@ -27,10 +27,10 @@ no
 - Bear signal: 0
 
 ## Planner Summary
-- Total queries: 6
+- Total queries: 8
 - Executed queries: 0
 - Categories: search, token
-- Estimated credits: 60
+- Estimated credits: 80
 
 ## LLM/Agent Summary
 - One sentence: INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE
@@ -70,6 +70,12 @@ no
 6. Who bought and sold recently
    - nansen research token who-bought-sold --chain solana --token HYPE --days 7
    - Why: Identify directional participants, smart-money behavior, and opposing evidence.
+7. OHLCV context
+   - nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
+   - Why: Add price-action context to the evidence set and test whether momentum confirms the thesis.
+8. PnL snapshot
+   - nansen research token pnl --chain solana --token HYPE --days 30
+   - Why: See whether current positioning looks healthy, crowded, or vulnerable to reversal.
 
 ## Evidence Items
 - No evidence collected yet
@@ -81,6 +87,8 @@ no
 - nansen research token flow-intelligence --chain solana --token HYPE --days 7
 - nansen research token flows --chain solana --token HYPE --days 30
 - nansen research token who-bought-sold --chain solana --token HYPE --days 7
+- nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
+- nansen research token pnl --chain solana --token HYPE --days 30
 
 ## Next Questions
 - Which executed query produced the strongest contradictory signal?
