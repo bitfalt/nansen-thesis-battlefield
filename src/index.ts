@@ -11,8 +11,8 @@ type OutputFormat = 'shell' | 'json' | 'markdown'
 
 type DemoOptions = {
   thesis: string
-  token: string
-  chain: string
+  token?: string
+  chain?: string
   format: OutputFormat
   writeArtifacts: boolean
   artifactDir: string
@@ -43,6 +43,9 @@ const VALIDATED_LIVE_STATUS = {
 
 function parseArgs(argv: string[]): DemoOptions {
   const options = { ...DEFAULT_OPTIONS }
+  let thesisSet = false
+  let tokenSet = false
+  let chainSet = false
 
   for (let index = 0; index < argv.length; index += 1) {
     const current = argv[index]
@@ -65,18 +68,21 @@ function parseArgs(argv: string[]): DemoOptions {
 
     if (current === '--thesis' && next) {
       options.thesis = next
+      thesisSet = true
       index += 1
       continue
     }
 
     if (current === '--token' && next) {
       options.token = next
+      tokenSet = true
       index += 1
       continue
     }
 
     if (current === '--chain' && next) {
       options.chain = next
+      chainSet = true
       index += 1
       continue
     }
@@ -85,6 +91,14 @@ function parseArgs(argv: string[]): DemoOptions {
       options.artifactDir = next
       index += 1
     }
+  }
+
+  if (thesisSet && !tokenSet) {
+    options.token = undefined
+  }
+
+  if (thesisSet && !chainSet) {
+    options.chain = undefined
   }
 
   return options
@@ -124,6 +138,7 @@ function buildAgentPreview(report: DemoReport) {
     caveats: report.caveats,
     nextQuestions: report.nextQuestions,
     agentSummary: report.agentSummary,
+    thesisProfile: report.thesisProfile,
     plannedQueryCount: report.plannedQueries.length,
     queryTracePreview: report.queryTrace.slice(0, 3),
   }
@@ -138,8 +153,8 @@ function renderShell(report: DemoReport, options: DemoOptions) {
     '',
     bullet([
       `thesis: ${options.thesis}`,
-      `token: ${options.token}`,
-      `chain: ${options.chain}`,
+      `token: ${report.token}`,
+      `chain: ${report.chain}`,
       'mode: offline shell preview backed by the reusable planner package',
     ]),
     section('Judge Scan'),
@@ -147,7 +162,17 @@ function renderShell(report: DemoReport, options: DemoOptions) {
       'This repo is the product shell, not the planner engine.',
       'The shell surfaces the investigation path, verdict framing, caveats, and agent handoff in one place.',
       'The default demo stays offline and credit-safe while still showing the real report contract.',
+      `This thesis was profiled as: ${report.thesisProfile?.lenses.join(', ') ?? 'general research'}.`,
       'Use bounded live runs only when a concrete product question is worth the spend.',
+    ]),
+    section('Thesis Profile'),
+    bullet([
+      `search query: ${report.thesisProfile?.searchQuery ?? report.token}`,
+      `token hint: ${report.thesisProfile?.tokenHint ?? report.token}`,
+      `chain hint: ${report.thesisProfile?.chainHint ?? report.chain}`,
+      `lenses: ${report.thesisProfile?.lenses.join(', ') ?? 'none'}`,
+      `inference confidence: ${report.thesisProfile?.confidence ?? 'low'}`,
+      ...((report.thesisProfile?.reasoning ?? []).map((reason) => `inference: ${reason}`)),
     ]),
     section('Planner Summary'),
     bullet([

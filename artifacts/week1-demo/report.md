@@ -6,6 +6,13 @@ Smart money is accumulating HYPE
 ## Token
 HYPE on solana
 
+## Thesis Profile
+- Search query: HYPE
+- Token hint: HYPE
+- Chain hint: solana
+- Lenses: smart-money, flows
+- Inference confidence: high
+
 ## Mode
 plan
 
@@ -46,34 +53,34 @@ no
 ## Planned Queries
 1. Resolve entity and search context
    - nansen research search --query "HYPE" --limit 5
-   - Why: Confirm the entity and collect the first contextual anchors.
+   - Why: Confirm the entity, resolve the best token candidate, and collect the first contextual anchors.
 2. Get token info
    - nansen research token info --chain solana --token HYPE
-   - Why: Establish the token identity, contract, and basic metadata.
-3. Inspect token indicators
-   - nansen research token indicators --chain solana --token HYPE
-   - Why: Pull high-level market and risk indicators that could support or weaken the thesis.
-4. 7-day token flows
+   - Why: Establish the token identity, contract, market structure, and baseline metadata.
+3. 7-day token flows
    - nansen research token flows --chain solana --token HYPE --days 7
-   - Why: Check short-term net flow pressure and direction.
+   - Why: Check short-term net flow pressure, recent capital direction, and whether the move is accelerating.
+4. Flow intelligence
+   - nansen research token flow-intelligence --chain solana --token HYPE --days 7
+   - Why: Identify the quality, source, and character of the capital flows behind the thesis.
 5. 30-day token flows
    - nansen research token flows --chain solana --token HYPE --days 30
-   - Why: Compare short-term thesis to medium-term capital movement.
-6. Flow intelligence
-   - nansen research token flow-intelligence --chain solana --token HYPE --days 7
-   - Why: Identify the quality and character of capital flows.
-7. Holder distribution
-   - nansen research token holders --chain solana --token HYPE
-   - Why: Check concentration and holder quality risk.
-8. Who bought and sold recently
+   - Why: Compare the short-term claim to medium-term capital movement and persistence.
+6. Who bought and sold recently
    - nansen research token who-bought-sold --chain solana --token HYPE --days 7
-   - Why: Identify directional participants and opposing evidence.
+   - Why: Identify directional participants, smart-money behavior, and opposing evidence.
+7. Inspect token indicators
+   - nansen research token indicators --chain solana --token HYPE
+   - Why: Pull high-level market, momentum, and risk indicators that could support or weaken the thesis.
+8. Holder distribution
+   - nansen research token holders --chain solana --token HYPE
+   - Why: Check concentration, holder quality, and whether the ownership base contradicts the thesis.
 9. PnL snapshot
    - nansen research token pnl --chain solana --token HYPE --days 30
-   - Why: See whether current positioning looks healthy or crowded.
+   - Why: See whether current positioning looks healthy, crowded, or vulnerable to reversal.
 10. OHLCV context
    - nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
-   - Why: Add price-action context to the evidence set.
+   - Why: Add price-action context to the evidence set and test whether momentum confirms the thesis.
 
 ## Evidence Items
 - No evidence collected yet
@@ -81,12 +88,12 @@ no
 ## Query Trace
 - nansen research search --query "HYPE" --limit 5
 - nansen research token info --chain solana --token HYPE
-- nansen research token indicators --chain solana --token HYPE
 - nansen research token flows --chain solana --token HYPE --days 7
-- nansen research token flows --chain solana --token HYPE --days 30
 - nansen research token flow-intelligence --chain solana --token HYPE --days 7
-- nansen research token holders --chain solana --token HYPE
+- nansen research token flows --chain solana --token HYPE --days 30
 - nansen research token who-bought-sold --chain solana --token HYPE --days 7
+- nansen research token indicators --chain solana --token HYPE
+- nansen research token holders --chain solana --token HYPE
 - nansen research token pnl --chain solana --token HYPE --days 30
 - nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
 

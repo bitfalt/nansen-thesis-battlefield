@@ -30,12 +30,14 @@ The point is not just to fetch data, but to show whether current onchain evidenc
 ```bash
 bun install
 bun run demo
+bun run demo:thesis
 bun run demo:artifacts
 bun run typecheck
 ```
 
 ## Demo outputs
 - `bun run demo` renders the Week 1 shell surface
+- `bun run demo:thesis` shows the thesis-first Starknet-style agent flow with planner inference
 - `bun run demo:json` prints the full structured report for agents / LLMs
 - `bun run demo:markdown` prints the human-readable report
 - `bun run demo:artifacts` refreshes the offline artifact pack in `artifacts/week1-demo`

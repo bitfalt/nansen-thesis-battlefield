@@ -12,7 +12,20 @@ Judge Scan
 - This repo is the product shell, not the planner engine.
 - The shell surfaces the investigation path, verdict framing, caveats, and agent handoff in one place.
 - The default demo stays offline and credit-safe while still showing the real report contract.
+- This thesis was profiled as: smart-money, flows.
 - Use bounded live runs only when a concrete product question is worth the spend.
+
+========================================================================================
+Thesis Profile
+========================================================================================
+- search query: HYPE
+- token hint: HYPE
+- chain hint: solana
+- lenses: smart-money, flows
+- inference confidence: high
+- inference: Using explicit token hint: HYPE.
+- inference: Using explicit chain hint: solana.
+- inference: Matched entity alias from thesis: HYPE -> HYPE.
 
 ========================================================================================
 Planner Summary
@@ -28,52 +41,52 @@ Investigation Plan
 ========================================================================================
 [1] Resolve entity and search context
   id: q1 | category: search | expected signal: contextual
-  why: Confirm the entity and collect the first contextual anchors.
+  why: Confirm the entity, resolve the best token candidate, and collect the first contextual anchors.
   cmd: nansen research search --query "HYPE" --limit 5
 
 [2] Get token info
   id: q2 | category: token | expected signal: contextual
-  why: Establish the token identity, contract, and basic metadata.
+  why: Establish the token identity, contract, market structure, and baseline metadata.
   cmd: nansen research token info --chain solana --token HYPE
 
-[3] Inspect token indicators
-  id: q3 | category: token | expected signal: contextual
-  why: Pull high-level market and risk indicators that could support or weaken the thesis.
-  cmd: nansen research token indicators --chain solana --token HYPE
-
-[4] 7-day token flows
+[3] 7-day token flows
   id: q4 | category: token | expected signal: supportive
-  why: Check short-term net flow pressure and direction.
+  why: Check short-term net flow pressure, recent capital direction, and whether the move is accelerating.
   cmd: nansen research token flows --chain solana --token HYPE --days 7
+
+[4] Flow intelligence
+  id: q6 | category: token | expected signal: supportive
+  why: Identify the quality, source, and character of the capital flows behind the thesis.
+  cmd: nansen research token flow-intelligence --chain solana --token HYPE --days 7
 
 [5] 30-day token flows
   id: q5 | category: token | expected signal: contextual
-  why: Compare short-term thesis to medium-term capital movement.
+  why: Compare the short-term claim to medium-term capital movement and persistence.
   cmd: nansen research token flows --chain solana --token HYPE --days 30
 
-[6] Flow intelligence
-  id: q6 | category: token | expected signal: supportive
-  why: Identify the quality and character of capital flows.
-  cmd: nansen research token flow-intelligence --chain solana --token HYPE --days 7
-
-[7] Holder distribution
-  id: q7 | category: token | expected signal: contradictory
-  why: Check concentration and holder quality risk.
-  cmd: nansen research token holders --chain solana --token HYPE
-
-[8] Who bought and sold recently
+[6] Who bought and sold recently
   id: q8 | category: token | expected signal: contradictory
-  why: Identify directional participants and opposing evidence.
+  why: Identify directional participants, smart-money behavior, and opposing evidence.
   cmd: nansen research token who-bought-sold --chain solana --token HYPE --days 7
+
+[7] Inspect token indicators
+  id: q3 | category: token | expected signal: contextual
+  why: Pull high-level market, momentum, and risk indicators that could support or weaken the thesis.
+  cmd: nansen research token indicators --chain solana --token HYPE
+
+[8] Holder distribution
+  id: q7 | category: token | expected signal: contradictory
+  why: Check concentration, holder quality, and whether the ownership base contradicts the thesis.
+  cmd: nansen research token holders --chain solana --token HYPE
 
 [9] PnL snapshot
   id: q9 | category: token | expected signal: contextual
-  why: See whether current positioning looks healthy or crowded.
+  why: See whether current positioning looks healthy, crowded, or vulnerable to reversal.
   cmd: nansen research token pnl --chain solana --token HYPE --days 30
 
 [10] OHLCV context
   id: q10 | category: token | expected signal: contextual
-  why: Add price-action context to the evidence set.
+  why: Add price-action context to the evidence set and test whether momentum confirms the thesis.
   cmd: nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
 
 ========================================================================================
@@ -140,11 +153,26 @@ Agent Handoff Preview
     "strongestBullCase": "No strong bull-side evidence yet.",
     "strongestBearCase": "No strong bear-side evidence yet."
   },
+  "thesisProfile": {
+    "searchQuery": "HYPE",
+    "tokenHint": "HYPE",
+    "chainHint": "solana",
+    "lenses": [
+      "smart-money",
+      "flows"
+    ],
+    "confidence": "high",
+    "reasoning": [
+      "Using explicit token hint: HYPE.",
+      "Using explicit chain hint: solana.",
+      "Matched entity alias from thesis: HYPE -> HYPE."
+    ]
+  },
   "plannedQueryCount": 10,
   "queryTracePreview": [
     "nansen research search --query \"HYPE\" --limit 5",
     "nansen research token info --chain solana --token HYPE",
-    "nansen research token indicators --chain solana --token HYPE"
+    "nansen research token flows --chain solana --token HYPE --days 7"
   ]
 }
 
