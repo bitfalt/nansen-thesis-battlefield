@@ -7,6 +7,7 @@
     "typecheck": "tsc --noEmit",
     "demo": "bun run src/index.ts",
     "demo:thesis": "bun run src/index.ts --thesis \"A lot of capital is moving into Starknet since they just revealed private BTC and private ERC20s. I believe smart money is moving into Starknet.\"",
+    "demo:budget": "bun run src/index.ts --thesis \"A lot of capital is moving into Starknet since they just revealed private BTC and private ERC20s. I believe smart money is moving into Starknet.\" --max-calls 8 --max-credits 60",
     "demo:json": "bun run src/index.ts --json",
     "demo:markdown": "bun run src/index.ts --markdown",
     "demo:artifacts": "bun run src/index.ts --write-artifacts"

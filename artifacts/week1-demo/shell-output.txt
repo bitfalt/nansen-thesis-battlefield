@@ -4,6 +4,7 @@ Week 1 shell for turning a token thesis into a budget-aware Nansen investigation
 - thesis: Smart money is accumulating HYPE
 - token: HYPE
 - chain: solana
+- planner caps: 8 calls / 60 credits
 - mode: offline shell preview backed by the reusable planner package
 
 ========================================================================================
@@ -30,9 +31,10 @@ Thesis Profile
 ========================================================================================
 Planner Summary
 ========================================================================================
-- planned queries: 10
+- planned queries: 6
 - executed queries in this preview: 0
 - categories: search, token
+- estimated credits for this plan: 60
 - verdict now: INCONCLUSIVE (low)
 - next action: Run a bounded execute-mode validation.
 
@@ -40,54 +42,40 @@ Planner Summary
 Investigation Plan
 ========================================================================================
 [1] Resolve entity and search context
-  id: q1 | category: search | expected signal: contextual
+  id: q1 | family: identity | category: search | expected signal: contextual
+  estimated cost: 10 credits
   why: Confirm the entity, resolve the best token candidate, and collect the first contextual anchors.
   cmd: nansen research search --query "HYPE" --limit 5
 
 [2] Get token info
-  id: q2 | category: token | expected signal: contextual
+  id: q2 | family: baseline | category: token | expected signal: contextual
+  estimated cost: 10 credits
   why: Establish the token identity, contract, market structure, and baseline metadata.
   cmd: nansen research token info --chain solana --token HYPE
 
 [3] 7-day token flows
-  id: q4 | category: token | expected signal: supportive
+  id: q4 | family: flows | category: token | expected signal: supportive
+  estimated cost: 10 credits
   why: Check short-term net flow pressure, recent capital direction, and whether the move is accelerating.
   cmd: nansen research token flows --chain solana --token HYPE --days 7
 
 [4] Flow intelligence
-  id: q6 | category: token | expected signal: supportive
+  id: q6 | family: flow-intelligence | category: token | expected signal: supportive
+  estimated cost: 10 credits
   why: Identify the quality, source, and character of the capital flows behind the thesis.
   cmd: nansen research token flow-intelligence --chain solana --token HYPE --days 7
 
 [5] 30-day token flows
-  id: q5 | category: token | expected signal: contextual
+  id: q5 | family: flows | category: token | expected signal: contextual
+  estimated cost: 10 credits
   why: Compare the short-term claim to medium-term capital movement and persistence.
   cmd: nansen research token flows --chain solana --token HYPE --days 30
 
 [6] Who bought and sold recently
-  id: q8 | category: token | expected signal: contradictory
+  id: q8 | family: participants | category: token | expected signal: contradictory
+  estimated cost: 10 credits
   why: Identify directional participants, smart-money behavior, and opposing evidence.
   cmd: nansen research token who-bought-sold --chain solana --token HYPE --days 7
-
-[7] Inspect token indicators
-  id: q3 | category: token | expected signal: contextual
-  why: Pull high-level market, momentum, and risk indicators that could support or weaken the thesis.
-  cmd: nansen research token indicators --chain solana --token HYPE
-
-[8] Holder distribution
-  id: q7 | category: token | expected signal: contradictory
-  why: Check concentration, holder quality, and whether the ownership base contradicts the thesis.
-  cmd: nansen research token holders --chain solana --token HYPE
-
-[9] PnL snapshot
-  id: q9 | category: token | expected signal: contextual
-  why: See whether current positioning looks healthy, crowded, or vulnerable to reversal.
-  cmd: nansen research token pnl --chain solana --token HYPE --days 30
-
-[10] OHLCV context
-  id: q10 | category: token | expected signal: contextual
-  why: Add price-action context to the evidence set and test whether momentum confirms the thesis.
-  cmd: nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
 
 ========================================================================================
 Human Readout
@@ -128,12 +116,13 @@ Agent Handoff Preview
     "explanation": "The query plan exists, but there is not enough executed evidence yet to support a real directional verdict."
   },
   "plannerSummary": {
-    "totalQueries": 10,
+    "totalQueries": 6,
     "executedQueries": 0,
     "categories": [
       "search",
       "token"
-    ]
+    ],
+    "estimatedTotalCredits": 60
   },
   "llmSummary": {
     "oneSentence": "INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE",
@@ -168,7 +157,7 @@ Agent Handoff Preview
       "Matched entity alias from thesis: HYPE -> HYPE."
     ]
   },
-  "plannedQueryCount": 10,
+  "plannedQueryCount": 6,
   "queryTracePreview": [
     "nansen research search --query \"HYPE\" --limit 5",
     "nansen research token info --chain solana --token HYPE",

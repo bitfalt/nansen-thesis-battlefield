@@ -27,9 +27,10 @@ no
 - Bear signal: 0
 
 ## Planner Summary
-- Total queries: 10
+- Total queries: 6
 - Executed queries: 0
 - Categories: search, token
+- Estimated credits: 60
 
 ## LLM/Agent Summary
 - One sentence: INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE
@@ -69,18 +70,6 @@ no
 6. Who bought and sold recently
    - nansen research token who-bought-sold --chain solana --token HYPE --days 7
    - Why: Identify directional participants, smart-money behavior, and opposing evidence.
-7. Inspect token indicators
-   - nansen research token indicators --chain solana --token HYPE
-   - Why: Pull high-level market, momentum, and risk indicators that could support or weaken the thesis.
-8. Holder distribution
-   - nansen research token holders --chain solana --token HYPE
-   - Why: Check concentration, holder quality, and whether the ownership base contradicts the thesis.
-9. PnL snapshot
-   - nansen research token pnl --chain solana --token HYPE --days 30
-   - Why: See whether current positioning looks healthy, crowded, or vulnerable to reversal.
-10. OHLCV context
-   - nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
-   - Why: Add price-action context to the evidence set and test whether momentum confirms the thesis.
 
 ## Evidence Items
 - No evidence collected yet
@@ -92,10 +81,6 @@ no
 - nansen research token flow-intelligence --chain solana --token HYPE --days 7
 - nansen research token flows --chain solana --token HYPE --days 30
 - nansen research token who-bought-sold --chain solana --token HYPE --days 7
-- nansen research token indicators --chain solana --token HYPE
-- nansen research token holders --chain solana --token HYPE
-- nansen research token pnl --chain solana --token HYPE --days 30
-- nansen research token ohlcv --chain solana --token HYPE --timeframe 1h
 
 ## Next Questions
 - Which executed query produced the strongest contradictory signal?

@@ -13,6 +13,8 @@ type DemoOptions = {
   thesis: string
   token?: string
   chain?: string
+  maxCalls: number
+  maxCredits?: number
   format: OutputFormat
   writeArtifacts: boolean
   artifactDir: string
@@ -24,6 +26,8 @@ const DEFAULT_OPTIONS: DemoOptions = {
   thesis: 'Smart money is accumulating HYPE',
   token: 'HYPE',
   chain: 'solana',
+  maxCalls: 8,
+  maxCredits: 60,
   format: 'shell',
   writeArtifacts: false,
   artifactDir: 'artifacts/week1-demo',
@@ -90,6 +94,26 @@ function parseArgs(argv: string[]): DemoOptions {
     if (current === '--artifact-dir' && next) {
       options.artifactDir = next
       index += 1
+      continue
+    }
+
+    if (current === '--max-calls' && next) {
+      const value = Number(next)
+      if (Number.isFinite(value) && value > 0) {
+        options.maxCalls = value
+      }
+      index += 1
+      continue
+    }
+
+    if (current === '--max-credits' && next) {
+      const value = Number(next)
+      if (Number.isFinite(value) && value > 0) {
+        options.maxCredits = value
+      } else {
+        options.maxCredits = undefined
+      }
+      index += 1
     }
   }
 
@@ -117,7 +141,8 @@ function renderPlan(report: DemoReport) {
     .map((step, index) => {
       return [
         `[${index + 1}] ${step.label}`,
-        `  id: ${step.id} | category: ${step.category} | expected signal: ${step.expectedSignal}`,
+        `  id: ${step.id} | family: ${step.queryFamily} | category: ${step.category} | expected signal: ${step.expectedSignal}`,
+        `  estimated cost: ${step.estimatedCostCredits} credits`,
         `  why: ${step.rationale}`,
         `  cmd: ${step.command}`,
       ].join('\n')
@@ -155,6 +180,7 @@ function renderShell(report: DemoReport, options: DemoOptions) {
       `thesis: ${options.thesis}`,
       `token: ${report.token}`,
       `chain: ${report.chain}`,
+      `planner caps: ${options.maxCalls} calls${options.maxCredits ? ` / ${options.maxCredits} credits` : ''}`,
       'mode: offline shell preview backed by the reusable planner package',
     ]),
     section('Judge Scan'),
@@ -179,6 +205,7 @@ function renderShell(report: DemoReport, options: DemoOptions) {
       `planned queries: ${report.plannerSummary.totalQueries}`,
       `executed queries in this preview: ${report.plannerSummary.executedQueries}`,
       `categories: ${report.plannerSummary.categories.join(', ')}`,
+      `estimated credits for this plan: ${report.plannerSummary.estimatedTotalCredits}`,
       `verdict now: ${report.verdict.decision} (${report.verdict.confidence})`,
       `next action: ${report.llmSummary.nextAction}`,
     ]),
@@ -226,14 +253,16 @@ function main() {
       token: options.token,
       chain: options.chain,
       mode: 'plan',
-      maxCalls: 10,
+      maxCalls: options.maxCalls,
+      maxCredits: options.maxCredits,
     },
     steps: buildWeekOnePlan({
       thesis: options.thesis,
       token: options.token,
       chain: options.chain,
       mode: 'plan',
-      maxCalls: 10,
+      maxCalls: options.maxCalls,
+      maxCredits: options.maxCredits,
     }),
     evidence: [],
     executed: false,

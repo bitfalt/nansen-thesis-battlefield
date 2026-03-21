@@ -1,7 +1,7 @@
 {
   "reportType": "thesis-battlefield.v1",
   "runId": "demo-week-1",
-  "generatedAt": "2026-03-21T03:48:09.496Z",
+  "generatedAt": "2026-03-21T06:22:15.419Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",
@@ -18,12 +18,13 @@
     "explanation": "The query plan exists, but there is not enough executed evidence yet to support a real directional verdict."
   },
   "plannerSummary": {
-    "totalQueries": 10,
+    "totalQueries": 6,
     "executedQueries": 0,
     "categories": [
       "search",
       "token"
-    ]
+    ],
+    "estimatedTotalCredits": 60
   },
   "llmSummary": {
     "oneSentence": "INCONCLUSIVE (low) on thesis: Smart money is accumulating HYPE",
@@ -37,7 +38,9 @@
       "command": "nansen research search --query \"HYPE\" --limit 5",
       "rationale": "Confirm the entity, resolve the best token candidate, and collect the first contextual anchors.",
       "category": "search",
-      "expectedSignal": "contextual"
+      "queryFamily": "identity",
+      "expectedSignal": "contextual",
+      "estimatedCostCredits": 10
     },
     {
       "id": "q2",
@@ -45,7 +48,9 @@
       "command": "nansen research token info --chain solana --token HYPE",
       "rationale": "Establish the token identity, contract, market structure, and baseline metadata.",
       "category": "token",
-      "expectedSignal": "contextual"
+      "queryFamily": "baseline",
+      "expectedSignal": "contextual",
+      "estimatedCostCredits": 10
     },
     {
       "id": "q4",
@@ -53,7 +58,9 @@
       "command": "nansen research token flows --chain solana --token HYPE --days 7",
       "rationale": "Check short-term net flow pressure, recent capital direction, and whether the move is accelerating.",
       "category": "token",
-      "expectedSignal": "supportive"
+      "queryFamily": "flows",
+      "expectedSignal": "supportive",
+      "estimatedCostCredits": 10
     },
     {
       "id": "q6",
@@ -61,7 +68,9 @@
       "command": "nansen research token flow-intelligence --chain solana --token HYPE --days 7",
       "rationale": "Identify the quality, source, and character of the capital flows behind the thesis.",
       "category": "token",
-      "expectedSignal": "supportive"
+      "queryFamily": "flow-intelligence",
+      "expectedSignal": "supportive",
+      "estimatedCostCredits": 10
     },
     {
       "id": "q5",
@@ -69,7 +78,9 @@
       "command": "nansen research token flows --chain solana --token HYPE --days 30",
       "rationale": "Compare the short-term claim to medium-term capital movement and persistence.",
       "category": "token",
-      "expectedSignal": "contextual"
+      "queryFamily": "flows",
+      "expectedSignal": "contextual",
+      "estimatedCostCredits": 10
     },
     {
       "id": "q8",
@@ -77,39 +88,9 @@
       "command": "nansen research token who-bought-sold --chain solana --token HYPE --days 7",
       "rationale": "Identify directional participants, smart-money behavior, and opposing evidence.",
       "category": "token",
-      "expectedSignal": "contradictory"
-    },
-    {
-      "id": "q3",
-      "label": "Inspect token indicators",
-      "command": "nansen research token indicators --chain solana --token HYPE",
-      "rationale": "Pull high-level market, momentum, and risk indicators that could support or weaken the thesis.",
-      "category": "token",
-      "expectedSignal": "contextual"
-    },
-    {
-      "id": "q7",
-      "label": "Holder distribution",
-      "command": "nansen research token holders --chain solana --token HYPE",
-      "rationale": "Check concentration, holder quality, and whether the ownership base contradicts the thesis.",
-      "category": "token",
-      "expectedSignal": "contradictory"
-    },
-    {
-      "id": "q9",
-      "label": "PnL snapshot",
-      "command": "nansen research token pnl --chain solana --token HYPE --days 30",
-      "rationale": "See whether current positioning looks healthy, crowded, or vulnerable to reversal.",
-      "category": "token",
-      "expectedSignal": "contextual"
-    },
-    {
-      "id": "q10",
-      "label": "OHLCV context",
-      "command": "nansen research token ohlcv --chain solana --token HYPE --timeframe 1h",
-      "rationale": "Add price-action context to the evidence set and test whether momentum confirms the thesis.",
-      "category": "token",
-      "expectedSignal": "contextual"
+      "queryFamily": "participants",
+      "expectedSignal": "contradictory",
+      "estimatedCostCredits": 10
     }
   ],
   "evidence": [],
@@ -119,11 +100,7 @@
     "nansen research token flows --chain solana --token HYPE --days 7",
     "nansen research token flow-intelligence --chain solana --token HYPE --days 7",
     "nansen research token flows --chain solana --token HYPE --days 30",
-    "nansen research token who-bought-sold --chain solana --token HYPE --days 7",
-    "nansen research token indicators --chain solana --token HYPE",
-    "nansen research token holders --chain solana --token HYPE",
-    "nansen research token pnl --chain solana --token HYPE --days 30",
-    "nansen research token ohlcv --chain solana --token HYPE --timeframe 1h"
+    "nansen research token who-bought-sold --chain solana --token HYPE --days 7"
   ],
   "nextQuestions": [
     "Which executed query produced the strongest contradictory signal?",
