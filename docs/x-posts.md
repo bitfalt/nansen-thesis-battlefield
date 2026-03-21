@@ -1,5 +1,24 @@
 # X Posts — Week 1 Thesis Battlefield
 
+## Best single post to publish
+Built for the #NansenCLI mini hackathon:
+
+Thesis Battlefield
+
+Paste a thesis like "smart money is accumulating HYPE" and the system turns it into a budget-aware Nansen investigation with:
+- an ordered query plan
+- verdict + confidence
+- strongest evidence and caveats
+- query trace
+- JSON output another agent can consume directly
+
+Week 1 repo: https://github.com/bitfalt/nansen-thesis-battlefield
+Planner foundation: https://github.com/bitfalt/nansen-query-planner
+
+Live validation is intentionally bounded so we do not burn credits recklessly. The point is not more raw queries - it is a better intelligence surface on top of them.
+
+@nansen_ai #NansenCLI
+
 ## Launch / participation options
 
 ### Post 1

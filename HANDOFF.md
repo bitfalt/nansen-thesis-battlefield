@@ -13,14 +13,16 @@ What works now:
 - the app-shell repo installs
 - typecheck passes
 - `bun run demo` works
+- `bun run demo:artifacts` writes a shareable offline artifact pack
 - it consumes the shared planner package
 - the planner emits a structured JSON report suitable for agents / LLMs
 - the planner also emits a markdown report for humans
+- the default shell output is now a product-like terminal surface instead of raw JSON only
 
 What is still not fully finished:
-- richer live evidence display in the shell
+- richer execute-mode evidence display from deeper live runs
 - final screenshots / polished public assets
-- final Week 1 packaging choices
+- final Week 1 packaging choices are mostly narrowed to screenshots + final post timing
 
 ## Core story to preserve
 Thesis Battlefield is not just a query wrapper.
@@ -38,9 +40,9 @@ It is an intelligence layer that:
 - `docs/x-posts.md`
 
 ## Recommended next work
-1. Improve how the shell presents execute-mode evidence.
-2. Select the best screenshot/report artifact for public submission.
-3. Finalize the exact X submission post.
+1. Capture 1-2 canonical screenshots from the refreshed shell/artifact pack.
+2. If credits are available, do one intentionally bounded live follow-up only if it improves the public demo materially.
+3. Publish the selected X post from `docs/x-posts.md`.
 4. Keep the shell thin and let the foundation repo handle deeper intelligence logic.
 
 ## Commands

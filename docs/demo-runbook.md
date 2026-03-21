@@ -9,6 +9,11 @@ The demo should make it obvious that the product is not just a query wrapper. It
 - gathers evidence under a budget
 - produces a usable verdict for both humans and agents
 
+Default demo posture for Week 1:
+- stay offline unless a live run answers a real question
+- show the shell surface first
+- use the validated q1/q2 live status as credibility, not as a reason to overspend credits
+
 ## Recommended demo format
 
 ### Demo title
@@ -40,6 +45,18 @@ Use plan mode output or the report’s plannedQueries section.
 
 Important line:
 "The query trace is part of the product. It shows why each query was chosen and keeps the investigation explainable."
+
+### 4.5 Show the Week 1 shell surface
+Use the shell output to show:
+- thesis card
+- planner summary
+- ordered investigation plan
+- human readout
+- agent handoff preview
+- validated live status / budget policy
+
+Important line:
+"Week 1 is already opinionated about presentation: a human can scan it quickly, and an agent can still consume the underlying structured report."
 
 ### 5. Show execute-mode evidence from the bounded live run
 Explain honestly:
@@ -76,13 +93,16 @@ bun run planner:demo
 
 ### Week 1 app shell demo
 ```bash
-cd /home/ubuntu/.hermes/projects/nansen/nansen-thesis-battlefield
 bun run demo
+```
+
+### Refresh the offline artifact pack
+```bash
+bun run demo:artifacts
 ```
 
 ### Bounded execute-mode example (only if credits are available)
 ```bash
-cd /home/ubuntu/.hermes/projects/nansen/nansen-query-planner
 NANSEN_API_KEY=... bun run bin/nansen-query-planner.ts --token HYPE --thesis "Smart money is accumulating HYPE" --mode execute --max-calls 2
 ```
 
@@ -92,6 +112,7 @@ NANSEN_API_KEY=... bun run bin/nansen-query-planner.ts --token HYPE --thesis "Sm
 - the system is agent-native, not dashboard-native
 - output is consumable by both humans and agents
 - the query trace is visible and inspectable
+- Week 1 now has a cleaner product surface and shareable artifact pack
 
 ## What not to claim
 - do not claim full live end-to-end validation of all query families

@@ -14,7 +14,7 @@
 - [x] Demo runbook
 - [x] X post drafts
 - [ ] Final screenshots
-- [ ] Final execution transcript or cleaned sample report
+- [x] Cleaned sample report artifact pack
 
 ## Evidence / credibility assets
 - [x] Query planner foundation repo exists
@@ -25,9 +25,9 @@
 
 ## Packaging assets still needed
 - [ ] 1-2 canonical screenshots
-- [ ] final selected report artifact to share publicly
-- [ ] final X post chosen and polished
-- [ ] concise explanation of current limitation / credit constraint
+- [x] final selected report artifact to share publicly
+- [x] final X post chosen and polished
+- [x] concise explanation of current limitation / credit constraint
 
 ## If credits are replenished
 - [ ] Run a slightly deeper bounded live investigation
