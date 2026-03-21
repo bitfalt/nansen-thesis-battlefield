@@ -1,7 +1,7 @@
 {
   "reportType": "thesis-battlefield.v1",
   "runId": "demo-week-1",
-  "generatedAt": "2026-03-21T06:55:08.025Z",
+  "generatedAt": "2026-03-21T07:12:33.662Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",
@@ -148,6 +148,7 @@
       "flows"
     ],
     "claimPolarity": "positive",
+    "claimFocus": "accumulation",
     "confidence": "high",
     "reasoning": [
       "Using explicit token hint: HYPE.",

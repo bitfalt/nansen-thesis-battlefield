@@ -25,6 +25,7 @@ Thesis Profile
 - chain hint: solana
 - lenses: smart-money, flows
 - claim polarity: positive
+- claim focus: accumulation
 - inference confidence: high
 - inference: Using explicit token hint: HYPE.
 - inference: Using explicit chain hint: solana.
@@ -165,6 +166,7 @@ Agent Handoff Preview
       "flows"
     ],
     "claimPolarity": "positive",
+    "claimFocus": "accumulation",
     "confidence": "high",
     "reasoning": [
       "Using explicit token hint: HYPE.",

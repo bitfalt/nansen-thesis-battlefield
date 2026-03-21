@@ -213,6 +213,7 @@ function renderShell(report: DemoReport, options: DemoOptions) {
       `chain hint: ${report.thesisProfile?.chainHint ?? report.chain}`,
       `lenses: ${report.thesisProfile?.lenses.join(', ') ?? 'none'}`,
       `claim polarity: ${report.thesisProfile?.claimPolarity ?? 'positive'}`,
+      `claim focus: ${report.thesisProfile?.claimFocus ?? 'general'}`,
       `inference confidence: ${report.thesisProfile?.confidence ?? 'low'}`,
       ...((report.thesisProfile?.reasoning ?? []).map((reason) => `inference: ${reason}`)),
     ]),

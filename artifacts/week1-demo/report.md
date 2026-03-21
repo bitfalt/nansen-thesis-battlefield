@@ -12,6 +12,7 @@ HYPE on solana
 - Chain hint: solana
 - Lenses: smart-money, flows
 - Claim polarity: positive
+- Claim focus: accumulation
 - Inference confidence: high
 
 ## Mode
