@@ -1,2 +1,4 @@
 node_modules
 .env
+.private/
+artifacts/week1-demo/runs/
