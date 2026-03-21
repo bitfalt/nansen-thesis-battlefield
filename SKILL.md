@@ -16,6 +16,27 @@ The environment must have:
 - this repo installed with `bun install`
 - a working Nansen CLI session for live runs
 
+## Install / activate this skill
+1. Clone the repo:
+```bash
+git clone https://github.com/bitfalt/nansen-thesis-battlefield.git
+cd nansen-thesis-battlefield
+```
+2. Install dependencies:
+```bash
+bun install
+```
+3. Authenticate the Nansen CLI:
+```bash
+nansen login --api-key <NANSEN_API_KEY>
+```
+4. Smoke test the skill in plan mode:
+```bash
+bun run battlefield -- --thesis "Smart money is accumulating HYPE" --mode plan --budget-profile safe
+```
+
+If an agent runtime supports loading a skill file, point it at this repo's `SKILL.md` and make sure the runtime can execute local shell commands in this repository.
+
 Recommended auth setup:
 ```bash
 nansen login --api-key <NANSEN_API_KEY>

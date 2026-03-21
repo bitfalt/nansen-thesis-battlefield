@@ -82,3 +82,7 @@ Thesis Battlefield now exposes a single agent-friendly command and API:
 - API: `analyzeThesis({ thesis, token?, chain?, mode?, budgetProfile?, format? })`
 
 See `SKILL.md` for the agent-facing skill instructions and `docs/agent-skill.md` for the exact contract.
+
+If you want someone to install and use it agentically, send them:
+- repo: `https://github.com/bitfalt/nansen-thesis-battlefield`
+- skill entrypoint: `SKILL.md`
