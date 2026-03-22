@@ -152,6 +152,8 @@ const result = analyzeThesis({
 })
 ```
 
+This repo currently keeps `package.json` private, so treat the API as a repo-local integration surface for now.
+
 For live app flows, call the API in `plan` mode first, show the budget recommendation, then call it again in `execute` mode only after approval.
 
 ## Inputs

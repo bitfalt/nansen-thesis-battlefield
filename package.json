@@ -11,6 +11,7 @@
     "./render": "./src/render.ts"
   },
   "scripts": {
+    "test": "bun test",
     "typecheck": "tsc --noEmit",
     "battlefield": "bun run bin/thesis-battlefield.ts",
     "demo": "bun run src/index.ts",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
+    "bun-types": "latest",
     "typescript": "^5.9.3"
   }
 }

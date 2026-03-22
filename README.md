@@ -39,7 +39,8 @@ bun run typecheck
 ```
 
 ## Demo outputs
-- `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe` runs the agent-facing thesis analyzer
+- `bun run battlefield -- --thesis "..." --mode plan --budget-profile safe` runs the first, non-spending planning step of the agent-facing thesis analyzer
+- `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe` runs the live step after the plan has been explained and approved
 - `bun run demo` renders the Week 1 shell surface
 - `bun run demo:thesis` shows the thesis-first Starknet-style agent flow with planner inference
 - `bun run demo:budget` shows the same thesis under the safe budget profile
@@ -58,6 +59,8 @@ The checked-in artifact pack is meant to help judges and reviewers scan the proj
 Use the foundation repo's `docs/credit-budget.md` as the source of truth.
 Default posture:
 - plan first
+- explain the inferred target, budget options, and expected spend
+- ask for approval before any live execute-mode run that spends credits
 - bounded live validation second
 - only spend more credits when it answers a real product question
 
@@ -77,9 +80,13 @@ The foundation repo focuses on:
 - structured reports
 
 ## Agent skill shape
-Thesis Battlefield now exposes a single agent-friendly command and API:
-- command: `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe`
+Thesis Battlefield exposes a stable agent workflow and a repo-local API:
+- plan command: `bun run battlefield -- --thesis "..." --mode plan --budget-profile safe`
+- execute command: `bun run battlefield -- --thesis "..." --mode execute --budget-profile safe`
 - API: `analyzeThesis({ thesis, token?, chain?, mode?, budgetProfile?, format? })`
+
+For live investigations, the intended sequence is always `plan -> explain -> ask -> execute`.
+This repo is still marked private in `package.json`, so treat the API as a repo-local integration surface for now rather than a published package contract.
 
 See `SKILL.md` for the agent-facing skill instructions and `docs/agent-skill.md` for the exact contract.
 

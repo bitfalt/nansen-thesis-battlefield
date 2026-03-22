@@ -120,7 +120,7 @@ Agent Handoff Preview
 ========================================================================================
 {
   "reportType": "thesis-battlefield.v1",
-  "runId": "battlefield_2026-03-21T16-12-50-424Z",
+  "runId": "battlefield_2026-03-22T05-39-54-919Z",
   "thesis": "Smart money is accumulating HYPE",
   "token": "HYPE",
   "chain": "solana",
